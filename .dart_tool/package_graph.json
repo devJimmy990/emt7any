@@ -504,6 +504,17 @@
       "dependencies": []
     },
     {
+      "name": "hive_ce",
+      "version": "2.12.0",
+      "dependencies": [
+        "crypto",
+        "isolate_channel",
+        "json_annotation",
+        "meta",
+        "web"
+      ]
+    },
+    {
       "name": "bloc",
       "version": "9.0.0",
       "dependencies": [
@@ -787,6 +798,11 @@
       ]
     },
     {
+      "name": "isolate_channel",
+      "version": "0.2.2+1",
+      "dependencies": []
+    },
+    {
       "name": "nested",
       "version": "1.0.0",
       "dependencies": [
@@ -913,22 +929,6 @@
         "meta",
         "path"
       ]
-    },
-    {
-      "name": "hive_ce",
-      "version": "2.12.0",
-      "dependencies": [
-        "crypto",
-        "isolate_channel",
-        "json_annotation",
-        "meta",
-        "web"
-      ]
-    },
-    {
-      "name": "isolate_channel",
-      "version": "0.2.2+1",
-      "dependencies": []
     }
   ],
   "configVersion": 1

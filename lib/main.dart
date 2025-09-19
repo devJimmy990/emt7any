@@ -1,3 +1,4 @@
+import 'package:emt7any/feature/auth/presentation/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: const Scaffold(body: Center(child: Text('Hello World'))),
+      home: const LoginPage(),
     );
   }
 }

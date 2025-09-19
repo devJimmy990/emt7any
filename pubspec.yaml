@@ -48,7 +48,7 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/icons/
+    # - assets/icons/
 
   # fonts:
   #   - family: Schyler
@@ -66,7 +66,7 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 flutter_assets:
   assets_path:
-    - assets/icons/
+    # - assets/icons/
     - assets/images/
 
   output_path: lib/core/constants/
