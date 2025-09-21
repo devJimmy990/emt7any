@@ -1,5 +1,8 @@
 import 'package:emt7any/core/helper/api_consumer.dart';
 import 'package:emt7any/core/helper/shared_preference.dart';
+import 'package:emt7any/feature/auth/cubit/auth_cubit.dart';
+import 'package:emt7any/feature/auth/cubit/controllers/auth_data_source.dart';
+import 'package:emt7any/feature/auth/cubit/controllers/auth_repository.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -12,6 +15,7 @@ Future<void> initAppModule() async {
   await _registerSharedPref();
   await _registerHydratedStorage();
   await _registerAPIConsumer();
+  await _registerUserController();
 }
 
 Future<void> _registerSharedPref() async {
@@ -35,4 +39,10 @@ Future<void> _registerAPIConsumer() async {
   sl.registerLazySingleton<ApiConsumer>(
     () => ApiConsumer(dotenv.env['BASE_SERVER_URL'] ?? ""),
   );
+}
+
+Future<void> _registerUserController() async {
+  sl.registerLazySingleton<AuthDataSource>(() => AuthDataSource(sl()));
+  sl.registerLazySingleton<AuthRepository>(() => AuthRepository(sl()));
+  sl.registerLazySingleton<AuthCubit>(() => AuthCubit(sl()));
 }
