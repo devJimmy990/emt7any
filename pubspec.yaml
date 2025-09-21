@@ -11,30 +11,34 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  
+
   # Debug
-  device_preview: ^1.2.0
   flutter_native_splash: ^2.4.6
 
   # Controllers
   equatable: ^2.0.7
   flutter_bloc: ^9.1.1
+  path_provider: ^2.1.5
   hydrated_bloc: ^10.1.1
+  shared_preferences: ^2.5.3
+  flutter_secure_storage: ^9.2.4
 
   # Helper
   dio: ^5.9.0
   intl: ^0.20.2
   get_it: ^8.2.0
+  video_player: ^2.10.0
   fluttertoast: ^8.2.12
-  flutter_screenutil: ^5.9.3
-
+  flutter_dotenv: ^6.0.0
+  flutter_screen_recording: ^2.0.24
+  
   # UI
   shimmer: ^3.0.0
   cupertino_icons: ^1.0.8
   introduction_screen: ^3.1.17
 
   # Database
-  sqflite: ^2.4.2
+  hive: ^2.2.3
 
 dev_dependencies:
   flutter_test:
@@ -43,32 +47,22 @@ dev_dependencies:
   intl_utils: ^2.8.12
   flutter_lints: ^5.0.0
 
+dependency_overrides:
+  js: ^0.6.3
+  flutter_secure_storage_web: any
+  flutter_screen_recording_web: any
+
 flutter:
   uses-material-design: true
+  generate: true
 
   assets:
+    - .env
     - assets/images/
-    - assets/icons/
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package
 flutter_assets:
   assets_path:
-    - assets/icons/
     - assets/images/
-
   output_path: lib/core/constants/
   filename: assets_manager.dart
   classname: AssetsManager

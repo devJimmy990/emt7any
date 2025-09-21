@@ -5,6 +5,12 @@ extension NavigatorExtension on BuildContext {
     Navigator.of(this).push(MaterialPageRoute(builder: (context) => screen));
   }
 
+  void pushReplacement(Widget screen) {
+    Navigator.of(
+      this,
+    ).pushReplacement(MaterialPageRoute(builder: (context) => screen));
+  }
+
   void pushNamed(String routeName) {
     Navigator.of(this).pushNamed(routeName);
   }
