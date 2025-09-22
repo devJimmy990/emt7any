@@ -2,14 +2,17 @@ import 'package:emt7any/core/helper/service_locator.dart';
 import 'package:emt7any/feature/auth/cubit/auth_cubit.dart';
 import 'package:emt7any/feature/auth/cubit/auth_state.dart';
 import 'package:emt7any/feature/auth/presentation/screen/login_screen.dart';
-import 'package:emt7any/feature/home/presentation/screen/home_screen.dart';
+import 'package:emt7any/feature/home/screen/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initAppModule();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
   runApp(const MyApp());
 }
 
