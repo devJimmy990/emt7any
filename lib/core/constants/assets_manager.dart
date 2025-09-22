@@ -9,5 +9,9 @@ class AssetsManager {
   /// Assets for assetsImagesQrCode
   /// assets/images/qr_code.png
   static const String assetsImagesQrCode = "assets/images/qr_code.png";
+
+  /// Assets for assetsImagesUser
+  /// assets/images/user.jpg
+  static const String assetsImagesUser = "assets/images/user.jpg";
 }
 

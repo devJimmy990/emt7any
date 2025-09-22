@@ -5,7 +5,7 @@ import 'package:emt7any/core/ui/toast.dart';
 import 'package:emt7any/core/validator/input.dart';
 import 'package:emt7any/feature/auth/cubit/auth_cubit.dart';
 import 'package:emt7any/feature/auth/cubit/auth_state.dart';
-import 'package:emt7any/feature/home/presentation/screen/home_screen.dart';
+import 'package:emt7any/feature/home/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
