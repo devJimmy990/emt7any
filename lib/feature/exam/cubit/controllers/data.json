@@ -1,0 +1,205 @@
+[
+    {
+        "answers": [
+            {
+                "question_id": 1,
+                "answer_text": "The capital of Egypt is Cairo.",
+                "answer_image": "base64_encoded_image_string",
+                "answer_data": {
+                    "choice": "A"
+                },
+                "time_spent_seconds": 45
+            },
+            {
+                "question_id": 2,
+                "answer_text": null,
+                "answer_image": null,
+                "answer_data": {
+                    "selected_options": [
+                        1,
+                        3
+                    ]
+                },
+                "time_spent_seconds": 30
+            }
+        ],
+        "notes": "I had trouble with question 3 due to formatting."
+    },
+    {
+        "status": true,
+        "message": " تم تسجيل الدخول بنجاح",
+        "data": {
+            "user": {
+                "id": 5,
+                "name": "Tarek Hesham Sayed ElFarmawy",
+                "email": "tarekelfarmawy@outlook.com",
+                "phone": "01010869006",
+                "national_id": "12345678909998",
+                "user_type": "student",
+                "is_active": true,
+                "email_verified_at": "2025-09-22T18: 03: 37.000000Z",
+                "created_at": "2025-09-22T15: 19: 37.000000Z",
+                "updated_at": null,
+                "student_id": 1,
+                "student_code": "studentTest",
+                "seat_number": "1010101",
+                "academic_year": "first",
+                "section": "scientific",
+                "birth_date": "1999-05-29T21: 00: 00.000000Z",
+                "gender": "male",
+                "guardian_phone": "01010869000",
+                "is_banned": false,
+                "school": {
+                    "id": 1,
+                    "name": " مدرسة السعيدية",
+                    "code": "happySchoolxD",
+                    "governorate": "الجيزة"
+                }
+            },
+            "access_token": "64|fOXYm607TUEhvpt4sKTXN5UhdKbo1rwDIZu8CuFm78b41ee7",
+            "token_type": "Bearer",
+            "expires_at": "2025-10-29T11: 32: 55.000000Z"
+        }
+    },
+    {
+        "status": true,
+        "message": "تم جلب الامتحان المتاح بنجاح",
+        "data": {
+            "id": 8,
+            "title": "امتحان كيمياء فل فل",
+            "description": "امتحان كيمياء فل الفل",
+            "exam_type": "final",
+            "academic_year": "third",
+            "total_score": 80,
+            "total_questions": 0,
+            "sections": [],
+            "start_time": "2025-09-27T12:54:00.000000Z",
+            "duration_minutes": 120,
+            "time_remaining_minutes": 120
+        }
+    },
+    {
+        "status": "success",
+        "message": "تم جلب الامتحان المتاح بنجاح",
+        "data": {
+            "exam": {
+                "id": 1,
+                "title": "امتحان اللغة العربية",
+                "description": "امتحان اخر السنة",
+                "subject": {
+                    "id": 1,
+                    "name": "عربي",
+                    "section": "science"
+                },
+                "exam_type": "final",
+                "academic_year": "first",
+                "duration_minutes": 120,
+                "total_score": 100,
+                "total_questions": 1,
+                "sections_count": 3,
+                "sections": [
+                    {
+                        "id": 1,
+                        "code": "sectionOne",
+                        "name": "تعبير",
+                        "order_number": 1,
+                        "shuffle_questions": 1,
+                        "question_count": 1,
+                        "total_points": 5,
+                        "questions": [
+                            {
+                                "id": 3,
+                                "section_id": 1,
+                                "question_text": "ما جمع كلمة (كتاب)؟",
+                                "question_image": null,
+                                "question_type": "multiple_choice",
+                                "options": [
+                                    "كتب",
+                                    "كتابون",
+                                    "كتبة",
+                                    "كتابات"
+                                ],
+                                "points": 5,
+                                "is_required": 1,
+                                "help_text": "فكر في صيغة الجمع"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "code": "sectionTwo",
+                        "name": "بلاغة",
+                        "order_number": 1,
+                        "shuffle_questions": 2,
+                        "question_count": 0,
+                        "total_points": 0,
+                        "questions": []
+                    },
+                    {
+                        "id": 3,
+                        "code": "sectionThree",
+                        "name": "نحو",
+                        "order_number": 1,
+                        "shuffle_questions": 2,
+                        "question_count": 0,
+                        "total_points": 0,
+                        "questions": []
+                    }
+                ],
+                "instructions": {
+                    "general": [
+                        "اقرأ جميع الأسئلة بعناية قبل البدء",
+                        "تأكد من اتصال الإنترنت قبل البدء",
+                        "لا تغلق المتصفح أثناء الامتحان",
+                        "سيتم حفظ إجاباتك تلقائياً كل 30 ثانية",
+                        "الامتحان مقسم إلى 3 أقسام"
+                    ],
+                    "technical": [
+                        "مدة الامتحان: 120 دقيقة",
+                        "الدرجة الكاملة: 100 درجة",
+                        "عدد الأسئلة: 1 سؤال في 3 قسم",
+                        "سيتم تسجيل الفيديو أثناء الامتحان",
+                        "الحد الأدنى لشحن البطارية: 50%"
+                    ],
+                    "navigation": [
+                        "يمكنك التنقل بين الأسئلة والأقسام بحرية",
+                        "تأكد من الإجابة على جميع الأسئلة المطلوبة",
+                        "يمكنك مراجعة إجاباتك قبل التسليم",
+                        "الأسئلة قد تكون مرتبة عشوائياً حسب إعداد كل قسم"
+                    ],
+                    "rules": [
+                        "ممنوع استخدام أي مصادر خارجية",
+                        "ممنوع التواصل مع الآخرين",
+                        "سيتم رصد أي محاولة غش",
+                        "في حالة انقطاع الاتصال، أعد تسجيل الدخول فوراً",
+                        "لا تغادر الصفحة أو تفتح تطبيقات أخرى"
+                    ]
+                },
+                "requirements": {
+                    "minimum_battery": 50,
+                    "video_recording": true
+                },
+                "timing": {
+                    "start_time": "2025-09-22T18:22:49.000000Z",
+                    "end_time": "2025-09-22T20:22:49.000000Z",
+                    "duration_minutes": 120,
+                    "current_time": "2025-09-22T19:03:20.069637Z"
+                }
+            },
+            "session_id": 2,
+            "session_token": "5c89487d-c664-4fcd-a94d-0beebec2f737",
+            "time_remaining_minutes": 65,
+            "can_pause": false,
+            "requirements": {
+                "minimum_battery": 50,
+                "video_recording": true
+            },
+            "timing_info": {
+                "exam_start_time": "2025-09-22T18:22:49.000000Z",
+                "exam_end_time": "2025-09-22T20:22:49.000000Z",
+                "student_start_time": "2025-09-22T19:17:29.470450Z",
+                "duration_minutes": 120
+            }
+        }
+    }
+]

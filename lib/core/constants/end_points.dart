@@ -4,6 +4,10 @@ class EndPoints {
   static const String me = 'api/v1/me';
 
   static const String studentDashboard = 'api/v1/student/dashboard';
+
+  static const String getExam = "api/v1/student/available-exam";
+
+  static const String submitAnswers = "api/v1/student/exam/submit";
 }
 
 /**

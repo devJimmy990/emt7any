@@ -17,12 +17,16 @@ class Button extends StatelessWidget {
     required VoidCallback? onPressed,
     Key? key,
     ButtonStyle? style,
+    TextStyle? labelStyle,
   }) => Button._(
     key: key,
     style: style,
     onPressed: onPressed,
     type: _ButtonType.filled,
-    child: Text(label, style: MyTextStyle.label.copyWith(color: Colors.white)),
+    child: Text(
+      label,
+      style: MyTextStyle.label.copyWith(color: Colors.white).merge(labelStyle),
+    ),
   );
 
   /// Text (TextButton)
@@ -55,7 +59,7 @@ class Button extends StatelessWidget {
 
   /// Icon (IconButton)
   factory Button.icon({
-    required IconData icon,
+    required Widget icon,
     required VoidCallback? onPressed,
     Key? key,
     ButtonStyle? style,
@@ -70,31 +74,37 @@ class Button extends StatelessWidget {
 
   final Widget child;
   final _ButtonType _type;
-  final IconData? icon;
+  final Widget? icon;
   final ButtonStyle? style;
   final VoidCallback? onPressed;
 
   @override
+  @override
   Widget build(BuildContext context) {
     switch (_type) {
       case _ButtonType.filled:
+        final defaultStyle = ElevatedButton.styleFrom(
+          backgroundColor: Colors.green,
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        );
+
         return ElevatedButton(
           onPressed: onPressed,
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green,
-            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
+          style: style == null ? defaultStyle : style!.merge(defaultStyle),
           child: child,
         );
+
       case _ButtonType.text:
         return TextButton(onPressed: onPressed, style: style, child: child);
+
       case _ButtonType.outlined:
         return OutlinedButton(onPressed: onPressed, style: style, child: child);
+
       case _ButtonType.icon:
-        return IconButton(onPressed: onPressed, icon: Icon(icon), style: style);
+        return IconButton(onPressed: onPressed, icon: icon!, style: style);
     }
   }
 }

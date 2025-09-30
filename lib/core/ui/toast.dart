@@ -2,58 +2,58 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Toaster {
-  static void success(String message, {Toast? length}) {
+  static void success(String message, {bool isLong = false}) {
     Fluttertoast.showToast(
       msg: message,
       fontSize: 16.0,
       textColor: Colors.white,
       gravity: ToastGravity.BOTTOM,
       backgroundColor: Colors.green,
-      toastLength: length ?? Toast.LENGTH_SHORT,
+      toastLength: isLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT,
     );
   }
 
-  static void error(String message, {Toast? length}) {
+  static void error(String message, {bool isLong = false}) {
     Fluttertoast.showToast(
       msg: message,
       fontSize: 16.0,
       textColor: Colors.white,
       gravity: ToastGravity.BOTTOM,
       backgroundColor: Colors.red,
-      toastLength: length ?? Toast.LENGTH_SHORT,
+      toastLength: isLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT,
     );
   }
 
-  static void info(String message, {Toast? length}) {
+  static void info(String message, {bool isLong = false}) {
     Fluttertoast.showToast(
       msg: message,
       fontSize: 16.0,
       textColor: Colors.white,
       gravity: ToastGravity.BOTTOM,
       backgroundColor: Colors.blue,
-      toastLength: length ?? Toast.LENGTH_SHORT,
+      toastLength: isLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT,
     );
   }
 
-  static void warning(String message, {Toast? length}) {
+  static void warning(String message, {bool isLong = false}) {
     Fluttertoast.showToast(
       msg: message,
       fontSize: 16.0,
       textColor: Colors.black,
       gravity: ToastGravity.BOTTOM,
       backgroundColor: Colors.yellow,
-      toastLength: length ?? Toast.LENGTH_SHORT,
+      toastLength: isLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT,
     );
   }
 
-  static void normal(String message, {Toast? length}) {
+  static void normal(String message, {bool isLong = false}) {
     Fluttertoast.showToast(
       msg: message,
       fontSize: 16.0,
       textColor: Colors.white,
       gravity: ToastGravity.BOTTOM,
       backgroundColor: Colors.grey,
-      toastLength: length ?? Toast.LENGTH_SHORT,
+      toastLength: isLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT,
     );
   }
 }

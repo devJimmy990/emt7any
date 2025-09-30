@@ -1,6 +1,8 @@
 import 'package:emt7any/core/extensions/navigation.dart';
 import 'package:emt7any/core/style/text_style.dart';
-import 'package:emt7any/feature/qrcode/qr_code_page.dart';
+import 'package:emt7any/feature/exam/presentation/screen/qr_code_screen.dart';
+import 'package:emt7any/feature/scores/scores_screen.dart';
+import 'package:emt7any/feature/tzlmat/screen/tzlmat_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeOptionsList extends StatefulWidget {
@@ -24,10 +26,18 @@ class _HomeOptionsListState extends State<HomeOptionsList>
       {
         "icon": Icons.assignment,
         "label": "الامتحانات",
-        "action": () => context.push(const QrConfirmationPage()),
+        "action": () => context.push(const QrConfirmationScreen()),
       },
-      {"icon": Icons.report_problem, "label": "التظلمات", "action": null},
-      {"icon": Icons.grade, "label": "النتائج الدراسية", "action": null},
+      {
+        "icon": Icons.report_problem,
+        "label": "التظلمات",
+        "action": () => context.push(const TzlmatScreen()),
+      },
+      {
+        "icon": Icons.grade,
+        "label": "النتائج الدراسية",
+        "action": () => context.push(const FinalScoresScreen()),
+      },
     ];
     super.initState();
     _controller = AnimationController(
@@ -70,9 +80,11 @@ class _HomeOptionsListState extends State<HomeOptionsList>
   }
 
   @override
-  Widget build(BuildContext context) => Row(
+  Widget build(BuildContext context) => Wrap(
     spacing: 24,
-    mainAxisAlignment: MainAxisAlignment.center,
+    runSpacing: 24,
+    alignment: WrapAlignment.center,
+    runAlignment: WrapAlignment.center,
     children: List.generate(_cards.length, (i) {
       final card = _cards[i];
       return SlideTransition(
@@ -105,11 +117,16 @@ class _HomeCard extends StatelessWidget {
   Widget build(BuildContext context) => InkWell(
     onTap: onTap,
     child: SizedBox(
-      width: 325,
-      height: 325,
+      width: 375,
+      height: 275,
       child: Card(
         color: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(35),
+            bottomLeft: Radius.circular(35),
+          ),
+        ),
         elevation: 12,
         child: Column(
           spacing: 20,
@@ -119,7 +136,7 @@ class _HomeCard extends StatelessWidget {
             Text(
               label,
               style: MyTextStyle.subTitle.copyWith(
-                fontSize: 30,
+                fontSize: 36,
                 color: const Color.fromRGBO(29, 67, 112, 1),
               ),
             ),

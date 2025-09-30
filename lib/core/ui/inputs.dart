@@ -13,8 +13,10 @@ class TextInputField extends StatefulWidget {
     this.clear = true,
     this.enabled = true,
     this.keyboardType = TextInputType.text,
+    this.maxLength,
   });
   final int lines;
+  final int? maxLength;
   final String label;
   final String? hint;
   final IconData? icon;
@@ -50,6 +52,7 @@ class _TextInputFieldState extends State<TextInputField> {
           widget.onChanged?.call(val);
           setState(() {});
         },
+        maxLength: widget.maxLength,
         enabled: widget.enabled,
         maxLines: widget.lines,
         decoration: InputDecoration(
