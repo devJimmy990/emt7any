@@ -11,6 +11,13 @@ extension NavigatorExtension on BuildContext {
     ).pushReplacement(MaterialPageRoute(builder: (context) => screen));
   }
 
+  void pushAndRemoveUntil(Widget screen) {
+    Navigator.of(this).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (context) => screen),
+      (route) => false,
+    );
+  }
+
   void pushNamed(String routeName) {
     Navigator.of(this).pushNamed(routeName);
   }
@@ -25,6 +32,10 @@ extension NavigatorExtension on BuildContext {
 
   void pop() {
     Navigator.of(this).pop();
+  }
+
+  void popUntilFirst() {
+    Navigator.of(this).popUntil((route) => route.isFirst);
   }
 
   void popUntil(String routeName) {

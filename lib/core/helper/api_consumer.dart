@@ -1,23 +1,24 @@
 import 'package:dio/dio.dart';
+import 'package:emt7any/core/helper/secure_storage.dart';
+import 'package:emt7any/core/helper/service_locator.dart';
 
 class ApiResponse<T> {
   ApiResponse({required this.status, required this.msg, this.data});
 
-  factory ApiResponse.success(
-    T? data, {
-    int status = 200,
-    String msg = "Success",
-  }) => ApiResponse(status: status, msg: msg, data: data);
+  factory ApiResponse.success(T? data, {String msg = "Success"}) =>
+      ApiResponse(status: true, msg: msg, data: data);
 
-  factory ApiResponse.error(String msg, {int status = -1}) =>
-      ApiResponse(status: status, msg: msg);
-  final int status;
+  factory ApiResponse.error(String msg) => ApiResponse(status: false, msg: msg);
+  final bool status;
   final String msg;
   final T? data;
+
+  @override
+  String toString() => 'ApiResponse(status: $status, msg: $msg, data: $data)';
 }
 
 class ApiConsumer {
-  ApiConsumer(String baseUrl)
+  ApiConsumer(String baseUrl, String? token)
     : _dio = Dio(
         BaseOptions(
           baseUrl: baseUrl,
@@ -26,10 +27,25 @@ class ApiConsumer {
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            "Authorization": "Bearer ",
+            if (token != null) "Authorization": "Bearer $token",
           },
         ),
-      );
+      ) {
+    _dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (options, handler) async {
+          final storedToken = await sl<SecureStorage>().readString("token");
+          if (storedToken != null && storedToken.isNotEmpty) {
+            options.headers["Authorization"] = "Bearer $storedToken";
+          } else {
+            options.headers.remove("Authorization");
+          }
+          return handler.next(options);
+        },
+      ),
+    );
+  }
+
   final Dio _dio;
 
   Future<ApiResponse<T>> get<T>(
@@ -41,10 +57,10 @@ class ApiConsumer {
         endpoint,
         queryParameters: queryParameters,
       );
-      return ApiResponse.success(
-        response.data,
-        status: response.statusCode ?? 200,
-      );
+      if ((response.data["status"] as bool) == false) {
+        return ApiResponse.error(response.data["message"]);
+      }
+      return ApiResponse.success(response.data);
     } on DioException catch (e) {
       return _handleError<T>(e);
     }
@@ -61,10 +77,10 @@ class ApiConsumer {
         data: data,
         queryParameters: queryParameters,
       );
-      return ApiResponse.success(
-        response.data,
-        status: response.statusCode ?? 200,
-      );
+      if ((response.data["status"] as bool) == false) {
+        return ApiResponse.error(response.data["message"]);
+      }
+      return ApiResponse.success(response.data);
     } on DioException catch (e) {
       return _handleError<T>(e);
     }
@@ -81,10 +97,10 @@ class ApiConsumer {
         data: data,
         queryParameters: queryParameters,
       );
-      return ApiResponse.success(
-        response.data,
-        status: response.statusCode ?? 200,
-      );
+      if ((response.data["status"] as bool) == false) {
+        return ApiResponse.error(response.data["message"]);
+      }
+      return ApiResponse.success(response.data);
     } on DioException catch (e) {
       return _handleError<T>(e);
     }
@@ -101,10 +117,10 @@ class ApiConsumer {
         data: data,
         queryParameters: queryParameters,
       );
-      return ApiResponse.success(
-        response.data,
-        status: response.statusCode ?? 200,
-      );
+      if ((response.data["status"] as bool) == false) {
+        return ApiResponse.error(response.data["message"]);
+      }
+      return ApiResponse.success(response.data);
     } on DioException catch (e) {
       return _handleError<T>(e);
     }
@@ -112,12 +128,10 @@ class ApiConsumer {
 
   ApiResponse<T> _handleError<T>(DioException e) {
     String message = "Unknown error occurred";
-    int status = -1;
 
     if (e.response != null) {
-      status = e.response?.statusCode ?? -1;
       message =
-          e.response?.data?['msg']?.toString() ??
+          e.response?.data?['message']?.toString() ??
           e.response?.statusMessage ??
           "Request failed";
     } else {
@@ -132,6 +146,6 @@ class ApiConsumer {
       }
     }
 
-    return ApiResponse.error(message, status: status);
+    return ApiResponse.error(message);
   }
 }
