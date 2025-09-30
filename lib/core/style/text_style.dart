@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyTextStyle {
+  static const header = TextStyle(fontSize: 50, fontWeight: FontWeight.bold);
   static const title = TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
   static const subTitle = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
