@@ -7,6 +7,7 @@
       "name": "emt7any",
       "version": "1.0.0+1",
       "dependencies": [
+        "awesome_dialog",
         "cupertino_icons",
         "dio",
         "equatable",
@@ -22,8 +23,8 @@
         "hive",
         "hydrated_bloc",
         "intl",
-        "introduction_screen",
         "path_provider",
+        "qr_flutter",
         "shared_preferences",
         "shimmer",
         "video_player"
@@ -110,19 +111,25 @@
       ]
     },
     {
-      "name": "introduction_screen",
-      "version": "3.1.17",
-      "dependencies": [
-        "collection",
-        "dots_indicator",
-        "flutter",
-        "flutter_keyboard_visibility"
-      ]
-    },
-    {
       "name": "cupertino_icons",
       "version": "1.0.8",
       "dependencies": []
+    },
+    {
+      "name": "awesome_dialog",
+      "version": "3.2.1",
+      "dependencies": [
+        "flutter",
+        "rive"
+      ]
+    },
+    {
+      "name": "qr_flutter",
+      "version": "4.1.0",
+      "dependencies": [
+        "flutter",
+        "qr"
+      ]
     },
     {
       "name": "shimmer",
@@ -497,23 +504,23 @@
       ]
     },
     {
-      "name": "flutter_keyboard_visibility",
-      "version": "6.0.0",
+      "name": "rive",
+      "version": "0.13.20",
       "dependencies": [
+        "collection",
         "flutter",
-        "flutter_keyboard_visibility_linux",
-        "flutter_keyboard_visibility_macos",
-        "flutter_keyboard_visibility_platform_interface",
-        "flutter_keyboard_visibility_web",
-        "flutter_keyboard_visibility_windows",
-        "meta"
+        "flutter_web_plugins",
+        "http",
+        "meta",
+        "plugin_platform_interface",
+        "rive_common"
       ]
     },
     {
-      "name": "dots_indicator",
-      "version": "4.0.1",
+      "name": "qr",
+      "version": "3.0.2",
       "dependencies": [
-        "flutter"
+        "meta"
       ]
     },
     {
@@ -939,45 +946,18 @@
       ]
     },
     {
-      "name": "flutter_keyboard_visibility_windows",
-      "version": "1.0.0",
+      "name": "rive_common",
+      "version": "0.4.15",
       "dependencies": [
+        "collection",
+        "ffi",
         "flutter",
-        "flutter_keyboard_visibility_platform_interface"
-      ]
-    },
-    {
-      "name": "flutter_keyboard_visibility_web",
-      "version": "2.0.0",
-      "dependencies": [
-        "flutter",
-        "flutter_keyboard_visibility_platform_interface",
-        "flutter_web_plugins"
-      ]
-    },
-    {
-      "name": "flutter_keyboard_visibility_macos",
-      "version": "1.0.0",
-      "dependencies": [
-        "flutter",
-        "flutter_keyboard_visibility_platform_interface"
-      ]
-    },
-    {
-      "name": "flutter_keyboard_visibility_linux",
-      "version": "1.0.0",
-      "dependencies": [
-        "flutter",
-        "flutter_keyboard_visibility_platform_interface"
-      ]
-    },
-    {
-      "name": "flutter_keyboard_visibility_platform_interface",
-      "version": "2.0.0",
-      "dependencies": [
-        "flutter",
+        "flutter_web_plugins",
+        "graphs",
+        "http",
         "meta",
-        "plugin_platform_interface"
+        "plugin_platform_interface",
+        "web"
       ]
     },
     {
@@ -1043,6 +1023,13 @@
       "name": "vm_service",
       "version": "15.0.2",
       "dependencies": []
+    },
+    {
+      "name": "graphs",
+      "version": "2.3.2",
+      "dependencies": [
+        "collection"
+      ]
     }
   ],
   "configVersion": 1
